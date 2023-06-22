@@ -8,10 +8,16 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
-<body>
-    <div class="banner"></div>
-    <body>
-        <div class="board" id="board">
+<body class="container-fluid">
+    <div class="row">
+        <div class="col-lg"></div>
+        <div class="col-lg banner centered alert"></div>
+        <div class="col-lg"></div>
+    </div>
+    <div class="row">
+        <div class="col-lg"></div>
+        <div class="col-lg">
+            <div class="board">
                <div class="cell" data-index="0"></div>
                <div class="cell" data-index="1"></div>
                <div class="cell" data-index="2"></div>
@@ -22,7 +28,14 @@
                <div class="cell" data-index="7"></div>
                <div class="cell" data-index="8"></div>
            </div>
-    <button class="reset">Reset</button>
+        </div>
+        <div class="col-lg"></div>
+    </div>
+    <div class="row">
+        <div class="col-lg"></div>
+        <div class="col-lg centered"><button class="reset">Reset</button></div>
+        <div class="col-lg"></div>
+    </div>
 
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>

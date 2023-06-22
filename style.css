@@ -15,3 +15,10 @@
     font-size: 60px;
     cursor: pointer;
 }
+
+.centered {
+    text-align: center;
+    padding: 1em;
+    font-size: x-large;
+    
+}

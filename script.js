@@ -35,9 +35,7 @@ function removeCells() {
 //tracks turns
 let round = 0;
 
-
-
-
+//compares current moves against winning combos after each player move
 function wins (arr1, arr2) {
     let win = false;
     arr1.forEach((val) => {
@@ -54,8 +52,9 @@ function wins (arr1, arr2) {
 function runGame() {
     
     addCells();
-
-    banner.innerHTML = 'player 1'
+    banner.classList.add("alert-primary")
+    banner.classList.remove("alert-secondary", "alert-success", "alert-warning", "alert-danger")
+    banner.innerHTML = "Player X"
 
 }
 
@@ -79,14 +78,18 @@ function play(e) {
     let index = e.target.getAttribute("data-index");
 
     if (round % 2 == 0 && player_x.includes(index) == false && player_o.includes(index) == false) {
-        turn = "player 2"
+        notice = "Player O"
+        banner.classList.remove("alert-primary")
+        banner.classList.add("alert-secondary")
         e.target.innerHTML = "x";
         player_x.push(index)
         round++;
         
 
     } else if (round % 1 == 0 && player_x.includes(index) == false && player_o.includes(index) == false) {
-        turn = "player 1"
+        notice = "Player X"
+        banner.classList.add("alert-primary")
+        banner.classList.remove("alert-secondary")
         e.target.innerHTML = "o";
         player_o.push(index)
         round++;
@@ -95,17 +98,23 @@ function play(e) {
     }
 
     if (wins(winningCombos, player_x) == true) {
-        turn = "x wins!";
+        notice = "Player X Wins!";
+        banner.classList.add("alert-success")
+        banner.classList.remove("alert-secondary", "alert-primary")
         removeCells();
         
     } else if (wins(winningCombos, player_o) == true) {
-        turn = "o wins!";
+        notice = "Player O Wins!";
+        banner.classList.add("alert-warning")
+        banner.classList.remove("alert-secondary", "alert-primary")
         removeCells();
     } else if (round == 9) {
-        turn = "tie!"
+        notice = "Draw!"
+        banner.classList.add("alert-danger")
+        banner.classList.remove("alert-secondary", "alert-primary")
         removeCells();
     }
-    banner.innerHTML = turn;
+    banner.innerHTML = notice;
 };
 
 
